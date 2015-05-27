@@ -15,7 +15,7 @@ This library is intended to be used most often with custom health check logic th
 
 You can find an example of how to implement a health check servlet using your own custom logic in the [web] folder.
 
-If you're just wanting to get started quickly or if you're only concerned about the web server responding to requests and executing Java servlets, perhaps the bare minimum implementation is for you. Simply grab the [latest sample war] and launch it within your JEE container. The simple health check will be exposed at `/lb.healthcheck.web/health'.
+If you're just wanting to get started quickly or if you're only concerned about the web server responding to requests and executing Java servlets, perhaps the bare minimum implementation is for you. Simply grab the [latest sample war] and launch it within your JEE container. The simple health check will be exposed at `/lb.healthcheck.web/health`.
 
 ## Load Balancer Configuration
 Here is what that Cloud Load Balancer configuration would look like in the [HOSTING Customer Portal].
