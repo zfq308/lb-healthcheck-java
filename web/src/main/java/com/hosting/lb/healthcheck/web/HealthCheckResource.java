@@ -1,4 +1,4 @@
-package org.lb.healthcheck.web;
+package com.hosting.lb.healthcheck.web;
 
 import java.util.Collections;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.hosting.lb.healthcheck.HealthCheck;
 import com.hosting.lb.healthcheck.HealthCheckManager;
@@ -19,18 +21,21 @@ import com.hosting.lb.healthcheck.SimpleHealthCheck;
 public class HealthCheckResource
 {
 	/**
-	 * Method processing HTTP GET requests, producing "text/plain" MIME media type.
+	 * Run example health check
 	 * 
-	 * @return String that will be send back as a response of type "text/plain".
+	 * @return Response that indicates HTTP status code and JSON check result details
 	 */
 	@GET
-	@Produces ("application/json")
-	public String test ()
+	@Produces (MediaType.APPLICATION_JSON)
+	public Response test ()
 	{
 		List<HealthCheck> checks = Collections.singletonList ((HealthCheck) new SimpleHealthCheck ());
 		HealthCheckResult result = HealthCheckManager.process (checks);
-		// response.setStatus (result.getCode ());
-		// response.setContentType ("application/json");
-		return result.toString ();
+		String resultMsg = result.toString();
+		if (result.isError ())
+		{
+			return Response.serverError ().type (MediaType.APPLICATION_JSON).entity (resultMsg).build ();
+		}
+		return Response.ok (resultMsg, MediaType.APPLICATION_JSON).build ();
 	}
 }
