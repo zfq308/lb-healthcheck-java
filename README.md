@@ -20,7 +20,7 @@ If you're just wanting to get started quickly or if you're only concerned about 
 ## Load Balancer Configuration
 Here is what that Cloud Load Balancer configuration would look like in the [HOSTING Customer Portal].
 
-![HOSTING Cloud Load Balancer Example Config](https://raw.github.com/HOSTINGLabs/lb-healthcheck/master/examples/config/config-screencap.png)
+![HOSTING Cloud Load Balancer Example Config](https://raw.github.com/HOSTINGLabs/lb-healthcheck-java/master/docs/config-screencap.png)
 
 [web]: web
 [latest release]: https://github.com/HOSTINGLabs/lb-healthcheck-java/releases/download/v0.1.0/lb.healthcheck.core.jar
