@@ -1,0 +1,8 @@
+vendor/
+components/
+composer.lock
+.classpath
+/target/
+.settings/
+.DS_Store
+.project
